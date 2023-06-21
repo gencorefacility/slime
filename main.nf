@@ -26,7 +26,8 @@ process tar {
 
 	script:
 	"""
-	tar cvjf ${run_dir_name}.tar.bz2 ${run_dir_path}
+	module load pbzip2/1.1.13
+	tar -c ${run_dir_path} | pbzip2 -c -p${SLURM_CPUS_PER_TASK} -m2000 > ${run_dir_name}.tar.bz2 
 	"""
 }
 
