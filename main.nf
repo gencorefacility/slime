@@ -26,7 +26,7 @@ process tar {
 
 	script:
 	"""
-	module load pbzip2/1.1.13
+	module load $PBZIP2_MODULE
 	tar -c ${run_dir_path} | pbzip2 -c -p${SLURM_CPUS_PER_TASK} -m2000 > ${run_dir_name}.tar.bz2 
 	"""
 }
