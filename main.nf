@@ -137,7 +137,6 @@ process _basecall {
 	mkdir -p \$tmp_work_dir
 
 	module load $PICARD_MODULE
-	module load $JDK_MODULE
 
 	java -jar -Xmx58g \$PICARD_JAR IlluminaBasecallsToFastq \
 		LANE=${lane} \
